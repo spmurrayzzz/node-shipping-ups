@@ -247,7 +247,16 @@ Pick a shipping rate
           length: 12,
           width: 12,
           height: 24
-        }
+        },
+        reference_number: 'ABC123' // optional
+        reference_number: { // optional, object format code/value keypair
+          code: 'PM',
+          value: 'ABC123'
+        },
+        reference_number: [ // optional, array format, can be strings or objects in code/value keypair format
+          'ABC123',
+          'WWWABC123'
+        ]
       }
     ]
   }
