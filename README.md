@@ -174,6 +174,7 @@ Get a list of shipping rates
     services: [ // optional, you can specify which rates to look for -- performs multiple requests, so be careful not to do too many
       '03'
     ],
+    return_service: '9', // optional, will provide a UPS Return Service specification
     packages: [
       {
         packaging_type: '02', // optional, packaging type code
@@ -198,6 +199,7 @@ Pick a shipping rate
 ```js
   data = {
     service_code: '03', // required for selected rate
+    return_service: '9', // optional, will provide a UPS Return Service specification
     pickup_type: 'daily_pickup', // optional, can be: 'daily_pickup', 'customer_counter', 'one_time_pickup', 'on_call_air', 'suggested_retail_rates', 'letter_center', 'air_service_center'
     pickup_type_code: '02', // optional, overwrites pickup_type
     customer_classification: '00', // optional, need more details about what this does
