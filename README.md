@@ -159,7 +159,8 @@ Get a list of shipping rates
       }
     },
     ship_from: { // optional, use if different from shipper address
-      name: 'Alternate Name',
+      company_name: 'Alternate Name',
+      attention_name: 'Attention Name',
       phone_number: '', // optional
       address: {
         address_line_1: '123 Fake Address',
@@ -226,7 +227,8 @@ Pick a shipping rate
       }
     },
     ship_from: { // optional, use if different from shipper address
-      name: 'Alternate Name',
+      company_name: 'Alternate Name',
+      attention_name: 'Attention Name',
       phone_number: '', // optional
       address: {
         address_line_1: '123 Fake Address',
