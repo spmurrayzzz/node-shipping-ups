@@ -81,7 +81,15 @@ Returns the real weight needing to be used for your package.
 
 `height` The height of your package
 
-### time_in_transit(data, callback)
+### Optional Options
+
+All request below can have the following optional options passed in an object:
+
+`transaction_id` A reference number you can pass to the transaction. Is returned as TransactionReference.CustomerContext
+
+`extra_params` This object extends the request object that is passed to the XML parser. Use with caution, but can enable extended functionality not present in the current module.
+
+### time_in_transit(data, [options,] callback)
 
 Calculate the time in transit for a shipment
 
@@ -106,7 +114,7 @@ Calculate the time in transit for a shipment
   }
 ```
 
-### address_validation(data, callback)
+### address_validation(data, [options,] callback)
 
 Validates an address
 
@@ -128,7 +136,7 @@ Validates an address
   }
 ```
 
-### track(tracking_number, [options], callback)
+### track(tracking_number, [options,] callback)
 
 Get a shipment's tracking information with `tracking_number` as the ID
 
@@ -138,7 +146,7 @@ Get a shipment's tracking information with `tracking_number` as the ID
   }
 ```
 
-### rates(data, callback)
+### rates(data, [options,] callback)
 
 Get a list of shipping rates
 
@@ -151,6 +159,7 @@ Get a list of shipping rates
       name: 'Type Foo',
       shipper_number: 'SHIPPER_NUMBER', // optional, but recommended for accurate rating
       phone_number: '', // optional
+      tax_identification_number: '', // optional
       address: {
         address_line_1: '123 Fake Address',
         city: 'Dover',
@@ -160,22 +169,39 @@ Get a list of shipping rates
       }
     },
     ship_to: {
-      name: 'John Doe', // optional
-      company_name: 'Uhsem Blee',
+      company_name: 'Company Name', // or person's name
       attention_name: '', // optional
       phone_number: '', // optional
+      tax_identification_number: '', // optional
+      location_id: '', //optional, for specific locations
       address: {
         address_line_1: '3456 Fake Address', // optional
         city: 'Charlotte', // optional
         state_code: 'NC', // optional, required for negotiated rates
         country_code: 'US',
-        postal_code: '28205'
+        postal_code: '28205',
+        residential: true // optional, can be useful for accurate rating
       }
     },
     ship_from: { // optional, use if different from shipper address
-      company_name: 'Alternate Name',
+      company_name: 'Company Name', // or person's name
       attention_name: 'Attention Name',
       phone_number: '', // optional
+      tax_identification_number: '', // optional
+      address: {
+        address_line_1: '123 Fake Address',
+        city: 'Dover',
+        state_code: 'OH',
+        country_code: 'US',
+        postal_code: '44622'
+      }
+    },
+    sold_to: { // optional, The person or company who imports and pays any duties due on the current shipment, required if Invoice of NAFTA CO is requested
+      option: '01', // optional, applies to NAFTA CO form
+      company_name: 'Company Name', // or person's name
+      attention_name: 'Attention Name',
+      phone_number: '', // optional
+      tax_identification_number: '', // optional
       address: {
         address_line_1: '123 Fake Address',
         city: 'Dover',
@@ -206,7 +232,7 @@ Get a list of shipping rates
   }
 ```
 
-### confirm(data, callback)
+### confirm(data, [options,] callback)
 
 Pick a shipping rate
 
@@ -219,8 +245,9 @@ Pick a shipping rate
     customer_classification: '00', // optional, need more details about what this does
     shipper: {
       name: 'Type Foo',
-      shipper_number: 'SHIPPER_NUMBER', // required here until another Billing Method enabled
+      shipper_number: 'SHIPPER_NUMBER', // optional, but recommended for accurate rating
       phone_number: '', // optional
+      tax_identification_number: '', // optional
       address: {
         address_line_1: '123 Fake Address',
         city: 'Dover',
@@ -230,22 +257,39 @@ Pick a shipping rate
       }
     },
     ship_to: {
-      name: 'John Doe', // optional
-      company_name: 'Uhsem Blee',
+      company_name: 'Company Name', // or person's name
       attention_name: '', // optional
       phone_number: '', // optional
+      tax_identification_number: '', // optional
+      location_id: '', //optional, for specific locations
       address: {
-        address_line_1: '3456 Fake Address',
-        city: 'Charlotte',
-        state_code: 'NC',
+        address_line_1: '3456 Fake Address', // optional
+        city: 'Charlotte', // optional
+        state_code: 'NC', // optional, required for negotiated rates
         country_code: 'US',
-        postal_code: '28205'
+        postal_code: '28205',
+        residential: true // optional, can be useful for accurate rating
       }
     },
     ship_from: { // optional, use if different from shipper address
-      company_name: 'Alternate Name',
+      company_name: 'Company Name', // or person's name
       attention_name: 'Attention Name',
       phone_number: '', // optional
+      tax_identification_number: '', // optional
+      address: {
+        address_line_1: '123 Fake Address',
+        city: 'Dover',
+        state_code: 'OH',
+        country_code: 'US',
+        postal_code: '44622'
+      }
+    },
+    sold_to: { // optional, The person or company who imports and pays any duties due on the current shipment, required if Invoice of NAFTA CO is requested
+      option: '01', // optional, applies to NAFTA CO form
+      company_name: 'Company Name', // or person's name
+      attention_name: 'Attention Name',
+      phone_number: '', // optional
+      tax_identification_number: '', // optional
       address: {
         address_line_1: '123 Fake Address',
         city: 'Dover',
@@ -280,7 +324,7 @@ Pick a shipping rate
   }
 ```
 
-### accept(shipment_digest, callback)
+### accept(shipment_digest, [options,] callback)
 
 Purchase a shipping label and tracking number
 
@@ -288,7 +332,7 @@ Purchase a shipping label and tracking number
   shipment_digest = 'SHIPMENTDIGEST'; // big data string
 ```
 
-### void(data, callback)
+### void(data, [options,] callback)
 
 ```js
   data = '1ZTRACKINGNUMBER';
