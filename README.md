@@ -17,6 +17,8 @@
     imperial: true // set to false for metric
   });
 
+  var realWeight = ups.dimensionalWeight(weight, length, width, height);
+
   ups.time_in_transit(..., function(err, res) {
     ...
   });
@@ -66,6 +68,18 @@ Initialize your API bindings
     debug: false
   }
 ```
+
+### dimensionalWeight(weight, length, width, height)
+
+Returns the real weight needing to be used for your package.
+
+`weight` The tare weight of your product
+
+`length` The longest side of your package
+
+`width` The width of your package
+
+`height` The height of your package
 
 ### time_in_transit(data, callback)
 
