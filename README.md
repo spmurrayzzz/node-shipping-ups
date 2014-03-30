@@ -159,6 +159,8 @@ Get a list of shipping rates
       name: 'Type Foo',
       shipper_number: 'SHIPPER_NUMBER', // optional, but recommended for accurate rating
       phone_number: '', // optional
+      fax_number: '', // optional
+      email_address: '', // optional
       tax_identification_number: '', // optional
       address: {
         address_line_1: '123 Fake Address',
@@ -172,6 +174,8 @@ Get a list of shipping rates
       company_name: 'Company Name', // or person's name
       attention_name: '', // optional
       phone_number: '', // optional
+      fax_number: '', // optional
+      email_address: '', // optional
       tax_identification_number: '', // optional
       location_id: '', //optional, for specific locations
       address: {
@@ -247,6 +251,8 @@ Pick a shipping rate
       name: 'Type Foo',
       shipper_number: 'SHIPPER_NUMBER', // optional, but recommended for accurate rating
       phone_number: '', // optional
+      fax_number: '', // optional
+      email_address: '', // optional
       tax_identification_number: '', // optional
       address: {
         address_line_1: '123 Fake Address',
@@ -260,6 +266,8 @@ Pick a shipping rate
       company_name: 'Company Name', // or person's name
       attention_name: '', // optional
       phone_number: '', // optional
+      fax_number: '', // optional
+      email_address: '', // optional
       tax_identification_number: '', // optional
       location_id: '', //optional, for specific locations
       address: {
