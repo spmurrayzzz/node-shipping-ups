@@ -1,6 +1,6 @@
 {
   "name": "shipping-ups",
-  "version": "0.4.18",
+  "version": "0.4.19",
   "description": "UPS API bindings for Node.JS",
   "keywords": [
     "shipping",
