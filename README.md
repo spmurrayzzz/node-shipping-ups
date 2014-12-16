@@ -367,6 +367,8 @@ Void a previously created order
 
 ### freight_rate(data, [options,] callback)
 
+Call the Freight Rating API
+
 These are example fields which cover the basic required fields. More should be added to cover all the features of the api.
 
 ```js
@@ -399,7 +401,8 @@ These are example fields which cover the basic required fields. More should be a
         state_code: 'NC',
         postal_code: '28262',
         country_code: 'US'
-      }
+      },
+      shipper_number: 'ABC123'
     },
     billing_option: '10',
     service_code: '308',
