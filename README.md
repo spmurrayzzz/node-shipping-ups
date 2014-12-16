@@ -51,6 +51,14 @@
   });
 ```
 
+### Freight Methods
+
+```js
+  ups.freight_rate(..., function(err, res) {
+    ...
+  });
+```
+
 ### new upsAPI(options)
 
 Initialize your API bindings
@@ -356,6 +364,64 @@ OR
 ```
 
 Void a previously created order
+
+### freight_rate(data, [options,] callback)
+
+These are example fields which cover the basic required fields. More should be added to cover all the features of the api.
+
+```js
+  ups.freight_rate({
+    ship_from: {
+      name: 'Test My Company',
+      address: {
+        address_line_1: '1234 Test Name Rd',
+        city: 'Charlotte',
+        state_code: 'NC',
+        postal_code: '28262',
+        country_code: 'US'
+      }
+    },
+    ship_to: {
+      name: 'John Doe',
+      address: {
+        address_line_1: '4567 Another Road Ct',
+        city: 'Dover',
+        state_code: 'OH',
+        postal_code: '44622',
+        country_code: 'US'
+      }
+    },
+    payer: {
+      name: 'Ron Rosef',
+      address: {
+        address_line_1: '867 Five Three Oh Nine',
+        city: 'Charlotte',
+        state_code: 'NC',
+        postal_code: '28262',
+        country_code: 'US'
+      }
+    },
+    billing_option: '10',
+    service_code: '308',
+    unit1: {
+      quantity: '20',
+      code: 'PLT'
+    },
+    commodity: {
+      description: 'A huge bag of something',
+      weight: '750',
+      number_of_pieces: '45',
+      packaging_type: 'BAG',
+      freight_class: '60'
+    }
+  }, function(err, res) {
+    if(err) {
+      return console.log(err);
+    }
+
+    console.log(util.inspect(res, {depth: null}));
+  });
+```
 
 See `example/index.js` for a working sample.
 
