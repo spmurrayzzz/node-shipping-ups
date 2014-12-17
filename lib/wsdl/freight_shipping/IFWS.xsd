@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XML Spy v4.1 U (http://www.xmlspy.com) by Ryan Schoultz (UPS GACOR850393,) -->
-<!-- end : IF schema -->
 <xsd:schema targetNamespace="http://www.ups.com/XMLSchema/XOLTWS/IF/v1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ups="http://www.ups.com/XMLSchema" xmlns:IF="http://www.ups.com/XMLSchema/XOLTWS/IF/v1.0" elementFormDefault="qualified">
 	<xsd:complexType name="InternationalFormType">
 		<xsd:sequence>
