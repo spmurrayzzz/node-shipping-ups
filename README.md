@@ -406,7 +406,7 @@ These are example fields which cover the basic required fields. More should be a
     },
     billing_option: '10',
     service_code: '308',
-    unit1: {
+    handling_unit_one: {
       quantity: '20',
       code: 'PLT'
     },
