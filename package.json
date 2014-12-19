@@ -1,6 +1,6 @@
 {
   "name": "shipping-ups",
-  "version": "0.4.20",
+  "version": "0.4.21",
   "description": "UPS API bindings for Node.JS",
   "keywords": [
     "shipping",
@@ -12,6 +12,7 @@
     "ups tracking",
     "ups rate",
     "ups rating",
+    "ups pickup",
     "address verification",
     "time in transit",
     "surepost",
