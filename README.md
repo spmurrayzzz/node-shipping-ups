@@ -45,6 +45,21 @@
     ...
   });
 
+  // Pickup Request
+  ups.pickup(..., function(err, result) {
+
+  });
+
+  // Pickup Rate Request
+  ups.pickup_rate(..., function(err, result) {
+
+  });
+
+  // Pickup Cancel Request
+  ups.cancel_pickup(..., function(err, result) {
+
+  });
+
   // Void the Shipment
   ups.void(..., function(err, result) {
     ...
@@ -55,6 +70,18 @@
 
 ```js
   ups.freight_rate(..., function(err, res) {
+    ...
+  });
+
+  ups.freight_ship(..., function(err, res) {
+    ...
+  });
+
+  ups.freight_pickup(..., function(err, res) {
+    ...
+  });
+
+  ups.cancel_freight_pickup(..., function(err, res) {
     ...
   });
 ```
@@ -348,6 +375,51 @@ Purchase a shipping label and tracking number
   shipment_digest = 'SHIPMENTDIGEST'; // big data string
 ```
 
+### pickup(pickup_creation_data, callback)
+
+```js
+  ups.pickup({
+    rate_pickup_indicator: 'Y',
+    shipper_account: 'ABC123',
+    pickup_date: '20141223',
+    eariest_time_ready: '0800',
+    latest_time_ready: '1200',
+    pickup_address: {
+      company_name: 'Pat Stewart',
+      contact_name: 'Pat Stewart',
+      address_line_1: '2311 York Road',
+      city: 'Timonium',
+      state_code: 'MD',
+      postal_code: '21093',
+      country_code: 'US',
+      phone_number: '5555555555'
+    },
+    weight: 5.5,
+    pickup_piece: [
+      {
+        service_code: '003',
+        quantity: 1,
+        container_code: '01'
+      }
+    ],
+    payment_method: '01'
+  }, function(err, res) {
+    if(err) {
+      return console.log(util.inspect(err, {depth: null}));
+    }
+
+    console.log(util.inspect(res, {depth: null}));
+  });
+```
+
+### pickup_rate(pickup_rate_data, callback)
+
+TBD
+
+### cancel_pickup(pickup_cancel_data, callback)
+
+TBD
+
 ### void(data, [options,] callback)
 
 ```js
@@ -425,6 +497,89 @@ These are example fields which cover the basic required fields. More should be a
     console.log(util.inspect(res, {depth: null}));
   });
 ```
+
+### freight_ship(data, [options,] callback)
+
+```js
+  ups.freight_ship({
+    request_option: 1, // optional, 1 for ground, 2 for air
+    customer_context: 'Add description', // optional
+    shipment_shipper_number: '222006',
+    ship_from: {
+      name: 'Pat Stewart',
+      address: {
+        address_line_1: '2311 York Road',
+        city: 'Timonium',
+        state_code: 'MD',
+        postal_code: '21093',
+        country_code: 'US'
+      },
+      attention_name: 'String',
+      phone_number: '5555555555',
+      tax_identification_number: '1234567890'
+    },
+    ship_to: {
+      name: 'Consignee Test 1',
+      address: {
+        address_line_1: '2010 Warsaw Road',
+        city: 'Roswell',
+        state_code: 'GA',
+        postal_code: '30076',
+        country_code: 'US'
+      },
+      attention_name: 'String',
+      phone_number: '5555554444',
+      email_address: 'test2@test.com'
+    },
+    payer: {
+      name: 'Superman',
+      address: {
+        address_line_1: '2010 Warsaw Road',
+        city: 'Roswell',
+        state_code: 'GA',
+        postal_code: '30076',
+        country_code: 'US'
+      },
+      shipper_number: '00613270'
+    },
+    billing_option: '10',
+    service_code: '308',
+    handling_unit_one: {
+      quantity: '16',
+      code: 'PLT'
+    },
+    commodity: {
+      id: '22',
+      description: 'BUGS',
+      weight: '511.25',
+      number_of_pieces: '1',
+      packaging_type: 'PLT',
+      freight_class: '60',
+      nmfc_commodity_code: '566',
+      dimensions: {
+        length: 1.25,
+        width: 1.2,
+        height: 5
+      }
+      //nmfc_prime_code: '116030',
+      //nmfc_sub_code: '1'
+    }
+  }, function(err, res) {
+    if(err) {
+      return console.log(util.inspect(err, {depth: null}));
+    }
+
+    console.log(util.inspect(res, {depth: null}));
+  });
+```
+
+### freight_pickup(data, [options,] callback)
+
+TBD
+
+### cancel_freight_pickup(data, [options,] callback)
+
+TBD
 
 See `example/index.js` for a working sample.
 
