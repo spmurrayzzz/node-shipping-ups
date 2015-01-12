@@ -116,6 +116,18 @@ Returns the real weight needing to be used for your package.
 
 `height` The height of your package
 
+### density(weight, length, width, height)
+
+Get the density of a package to be used for calculating freight class
+
+`weight` The tare weight of your product
+
+`length` The longest side of your package
+
+`width` The width of your package
+
+`height` The height of your package
+
 ### Optional Options
 
 All request below can have the following optional options passed in an object:
