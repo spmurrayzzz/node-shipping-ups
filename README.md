@@ -136,6 +136,8 @@ All request below can have the following optional options passed in an object:
 
 `extra_params` This object extends the request object that is passed to the XML parser. Use with caution, but can enable extended functionality not present in the current module.
 
+`use_ounces` This boolean option will allow you to substitute OZS instead of LBS or KGS in your request (Useful for rates that require less than a pound)
+
 ### time_in_transit(data, [options,] callback)
 
 Calculate the time in transit for a shipment
