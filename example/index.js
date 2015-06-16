@@ -118,7 +118,16 @@ ups.confirm({
       weight: 10
     }
   ]
-}, function(err, res) {
+}, {transaction_id: 'ABC123', extra_params: {Shipment: {ShipmentServiceOptions: {Notification: {
+  NotificationCode: '2',
+  EMailMessage: {
+    EMailAddress: 'hello@myemailaddress.com',
+    UndeliverableEMailAddress: 'noreply@myemailaddress.com',
+    FromEMailAddress: 'from@myemailaddress.com',
+    Memo: 'We thought you might like to know',
+    Subject: 'Your package has shipped from our store'
+  }
+}}}}}, function(err, res) {
   if(err) {
     return console.log(err);
   }

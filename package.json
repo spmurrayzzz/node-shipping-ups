@@ -1,6 +1,6 @@
 {
   "name": "shipping-ups",
-  "version": "0.4.28",
+  "version": "0.4.29",
   "description": "UPS API bindings for Node.JS",
   "keywords": [
     "shipping",
@@ -43,9 +43,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "extend": "latest",
+    "node.extend": "^1.1.5",
     "soap": "git://github.com/vpulim/node-soap.git#69b9e2a46812e0fc02fbd13469359f131f7f7d5b",
-    "xml2json": "latest",
-    "xmlbuilder": "latest"
+    "xml2json": "^0.6.2",
+    "xmlbuilder": "^2.6.4"
   }
 }
