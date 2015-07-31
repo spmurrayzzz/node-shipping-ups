@@ -296,6 +296,7 @@ Pick a shipping rate
     pickup_type: 'daily_pickup', // optional, can be: 'daily_pickup', 'customer_counter', 'one_time_pickup', 'on_call_air', 'suggested_retail_rates', 'letter_center', 'air_service_center'
     pickup_type_code: '02', // optional, overwrites pickup_type
     customer_classification: '00', // optional, need more details about what this does
+    label_type: 'EPL', // optional, will default to 'GIF'
     shipper: {
       name: 'Type Foo',
       shipper_number: 'SHIPPER_NUMBER', // optional, but recommended for accurate rating
