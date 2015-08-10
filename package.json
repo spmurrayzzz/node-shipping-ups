@@ -45,7 +45,7 @@
   "dependencies": {
     "node.extend": "^1.1.5",
     "soap": "git://github.com/vpulim/node-soap.git#69b9e2a46812e0fc02fbd13469359f131f7f7d5b",
-    "xml2json": "^0.6.2",
+    "xml2json": "^0.8.2",
     "xmlbuilder": "^2.6.4"
   }
 }
