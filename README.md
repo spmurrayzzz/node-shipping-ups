@@ -283,6 +283,10 @@ Get a list of shipping rates
       }
     ]
   }
+
+  options = {
+    negotiated_rates: true // Optional, but if truthy then the NegotiatedRatesIndicator will always be placed (even without state/province code). Useful for countries without provinces.
+  }
 ```
 
 ### confirm(data, [options,] callback)
@@ -379,6 +383,10 @@ Pick a shipping rate
         ]
       }
     ]
+  }
+
+  options = {
+    negotiated_rates: true // See rates options.
   }
 ```
 
