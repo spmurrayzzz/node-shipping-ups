@@ -1,6 +1,6 @@
 {
   "name": "shipping-ups",
-  "version": "0.4.32",
+  "version": "0.5.0",
   "description": "UPS API bindings for Node.JS",
   "keywords": [
     "shipping",
@@ -45,7 +45,7 @@
   "dependencies": {
     "node.extend": "^1.1.5",
     "soap": "^0.9.1",
-    "xml2json": "^0.8.2",
+    "xml2js": "^0.4.10",
     "xmlbuilder": "^2.6.4"
   }
 }
