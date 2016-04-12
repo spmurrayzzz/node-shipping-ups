@@ -297,6 +297,7 @@ Pick a shipping rate
   data = {
     service_code: '03', // required for selected rate
     return_service: '9', // optional, will provide a UPS Return Service specification
+    saturday_delivery: true, // optional, will indicate Saturday Delivery
     pickup_type: 'daily_pickup', // optional, can be: 'daily_pickup', 'customer_counter', 'one_time_pickup', 'on_call_air', 'suggested_retail_rates', 'letter_center', 'air_service_center'
     pickup_type_code: '02', // optional, overwrites pickup_type
     customer_classification: '00', // optional, need more details about what this does
